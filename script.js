@@ -1,15 +1,21 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-let numerals = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-let specialChar = [' ', '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '>', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '}', '|', '~'];
-let charPool = [];
+// let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+// let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+// let numerals = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+// let specialChar = [' ', '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '>', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '}', '|', '~'];
+let lowerCase = "abcdefghijklmnopqrstuvwxyz";
+let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let numerals = "0123456789";
+let specialChar = "!@#$%^&*()_+~`|}{[]\:;?><,./-='";
+
+let charPool = null;
 let upperQ = null;
 let lowerQ = null;
 let nummeralQ = null;
 let specialQ = null;
-let passwordLength = null
+let passwordLength = null;
+let newPassword = null;
 
 // Write password to the #password input
 function writePassword() {
@@ -56,20 +62,13 @@ generateBtn.addEventListener("click", function () {
   }
 
   if (Number(passwordLength >= 8) && Number(passwordLength <= 128)) {
-    for (var i = 0; i < passwordLength; i++) { newPassword += passwordCharset.charAt(Math.floor(Math.random() * passwordCharset.length)); }; localStorage.setItem("password", newPassword);
+    for (var i = 0; i < passwordLength; i++) { newPassword += charPool.charAt(Math.floor(Math.random() * charPool.length)); }; localStorage.setItem("password", newPassword);
     var newPasswordStr = localStorage.getItem("password");
-    passwordE1.textContent = newPasswordStr;
+    passwordText.textContent = newPasswordStr;
   };
 
 }
 );
 
 
-
-
-
-
-// generateBtn.addEventListener("click", function() {
-//   alert("Hello World!");
-// });
 
